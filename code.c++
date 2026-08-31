@@ -1,16 +1,19 @@
-int buttonPin = 7;
-int ledPin = 10;
-bool estadoLed = false;
+int pir = 7;
+int led = 3;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(buttonPin, INPUT);
+  pinMode(pir, INPUT);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
-  if (digitalRead(buttonPin) == HIGH) {
-    estadoLed = !estadoLed;
-    digitalWrite(ledPin, estadoLed);
-    delay(500);
+  int movimento = digitalRead(pir);
+
+  if (movimento == HIGH) {
+    digitalWrite(led, HIGH);
+  } else {
+    digitalWrite(led, LOW);
   }
+
+  delay(100);
 }
